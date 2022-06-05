@@ -3,8 +3,6 @@ import discord
 
 app = discord.Client()
 
-token = "here"
-
 @app.event
 async def on_ready():
     print("다음으로 로그인합니다 : ")
