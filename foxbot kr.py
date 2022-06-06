@@ -10,7 +10,7 @@ async def on_ready():
     print(app.user.id)
     print("==========")
 
-token = "OTgzMDI0MjM2MjM3MDQxNjk0.Gddn1S.ao0aeTC9o9Y1_r6lDKhYeyNLl4A_ioYVMd4tUs"
+token = ""
 
 import asyncio
 import discord
