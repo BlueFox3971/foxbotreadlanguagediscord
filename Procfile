@@ -1,1 +1,1 @@
-worker:python foxbot kr.py
+worker: python foxbot kr.py
