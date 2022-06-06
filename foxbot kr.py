@@ -10,7 +10,7 @@ async def on_ready():
     print(app.user.id)
     print("==========")
 
-
+token = open("token", "r").readline()
 
 
 import asyncio
@@ -33,7 +33,7 @@ async def on_message(msg):
 
 @bot.command()
 async def 안녕(ctx):
-    await ctx.channel.send('나도 안녕!')
+    await ctx.send("{} 나도 안녕!".format(ctx.author.mention))
 
 ## 이건 테스트 임베디드
 @bot.command()
@@ -71,14 +71,14 @@ async def 사용설명서(ctx):
     embed.set_footer(text="다들 한국어 열심히 배워봐요! 화이팅!")
     await ctx.send(embed=embed)
 
-@bot.command(name='테스트')
+@bot.command()
 async def 테스트(ctx):
     embed = discord.Embed(title="너에게 묻는다", description="안도현", color=0x0048ba)
     embed.add_field(name="본문", value='너에게 묻는다 \n 연탄재 함부로 발로 차지 마라 \n 너는 누구에게 한번이라도 뜨거운 사람이었느냐 \n 반쯤 깨진 연탄 \n 언젠가는 나도 활활 타오르고 싶을 것이다 \n 나를 끝 닿는데 까지 한번 밀어붙여 보고 싶은 것이다 \n 타고 왔던 트럭에 실려 다시 돌아가면 \n 연탄, 처음으로 붙여진 나의 이름도 \n 으깨어져 나의 존재도 까마득히 뭉개질 터이니 \n 죽어도 여기서 찬란한 끝장을 한번 보고 싶은 것이다 \n 나를 기다리고 있는 뜨거운 밑불위에 \n 지금은 인정머리없는 차가운, 갈라진 내 몸을 얹고 \n 아랫쪽부터 불이 건너와 옮겨 붙기를 \n 시간의 바통을 내가 넘겨 받는 순간이 오기를 \n 그리하여 서서히 온몸이 벌겋게 달아 오르기를 \n 나도 느껴보고 싶은 것이다 \n 나도 보고 싶은 것이다 \n \n 모두들 잠든 깊은 밤에 눈에 빨갛게 불을 켜고 \n 구들장 속이 얼마나 침침하니 손을 뻗어 보고 싶은 것이다 \n 나로 하여 푸근한 잠 자는 처녀의 등허리를 \n 밤새도록 슬금슬금 만져도 보고 싶은 것이다', inline=False)
     embed.set_footer(text="시집 〈외롭고 높고 쓸쓸한〉 (1994) \npoem code: 8")
     await ctx.send(embed=embed)
 
-@bot.command(name='테스트 2')
+@bot.command()
 async def 테스트2(ctx):
     embed = discord.Embed(title="풀꽃", description="나태주", color=0x0048ba)
     embed.add_field(name="본문", value='자세히 보아야 사랑스럽다 \n 오래 보아야 사랑스럽다 \n 너도 그렇다', inline=False)
@@ -90,6 +90,19 @@ async def 시(ctx):
     dm_channel = await ctx.message.author.create_dm()(ctx.author.id).send()
     await dm_channel.send(f"테스트 멘션이에요!")
 
+@bot.command()
+async def 예문(ctx):
+    await ctx.send("{} 예문을 DM으로 보내드렸어요!".format(ctx.author.mention))
+
+
+##영어판
+
+@bot.command()
+async def guidebook(ctx):
+    embed = discord.Embed(title="guidebook", description="Foxbot guidebook", color=0x0048ba)
+    embed.add_field(name="English guidebook is not support yet... :smiling_face_with_tear: ", value='see you soon when update', inline=False)
+    embed.set_footer(text="let's learn Korean! 'fighting!'")
+    await ctx.send(embed=embed)
 
 bot.run(token)
 app.run(token)
