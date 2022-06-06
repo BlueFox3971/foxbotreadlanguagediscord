@@ -12,7 +12,6 @@ async def on_ready():
 
 token = open("token", "r").readline()
 
-
 import asyncio
 import discord
 from discord.ext import commands
@@ -100,7 +99,7 @@ async def 예문(ctx):
 @bot.command()
 async def guidebook(ctx):
     embed = discord.Embed(title="guidebook", description="Foxbot guidebook", color=0x0048ba)
-    embed.add_field(name="English guidebook is not support yet... :smiling_face_with_tear: ", value='see you soon when update', inline=False)
+    embed.add_field(name="English guidebook is not supported yet... :smiling_face_with_tear: ", value='see you soon when I pdate', inline=False)
     embed.set_footer(text="let's learn Korean! 'fighting!'")
     await ctx.send(embed=embed)
 
