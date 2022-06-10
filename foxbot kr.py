@@ -98,6 +98,14 @@ async def 시(ctx):
 @bot.command()
 async def 예문(ctx):
     await ctx.send("{} 예문을 DM으로 보내드렸어요!".format(ctx.author.mention))
+    await member.send(f'테스트 성공')
+    await message.author.send("Content")
+    await client.get_user(other_user_id).send("Content")
+
+@bot.command(name="DM보내기", pass_context=True)
+async def send_dm(ctx, user_name: discord.member):
+    channel = await user_name.create_dm()
+    await channel.send("예제 성공했어요!")
 
 
 ##영어판
