@@ -2,7 +2,7 @@ import asyncio
 import discord
 
 app = discord.Client()
-token = ""
+token = 
 
 import asyncio
 import discord
@@ -11,19 +11,20 @@ bot = commands.Bot(command_prefix='kr ')
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.idle, activity=discord.Game('say "kr <string>", type "kr 사용설명서" (kor) or "kr guidebook" (english) '))
+    await bot.change_presence(status=discord.Status.offline, activity=discord.Game('say "kr <string>", type "kr 사용설명서" (kor) or "kr guidebook" (english) '))
     print('[안녕하세요! Foxbot이 가동되었습니다.]')
     print('kr <명령어>를 사용해 한국어 예문을 받을 수 있습니다')
-
-@bot.event
-async def on_message(msg):
-    await bot.process_commands(msg)
 
 ##봇명령어 테스
 
 @bot.command()
 async def 안녕(ctx):
     await ctx.send("{} 나도 안녕!".format(ctx.author.mention))
+
+bot.command()
+async def 파일테스트(ctx):
+    file = discord.DMChannel("\essay\1.txt")
+    await ctx.send("메세지 내용",file=file)
 
 ## 이건 테스트 임베디드
 @bot.command()
@@ -99,8 +100,6 @@ async def 시(ctx):
 async def 예문(ctx):
     await ctx.send("{} 예문을 DM으로 보내드렸어요!".format(ctx.author.mention))
     await member.send(f'테스트 성공')
-    await message.author.send("Content")
-    await client.get_user(other_user_id).send("Content")
 
 @bot.command(name="DM보내기", pass_context=True)
 async def send_dm(ctx, user_name: discord.member):
