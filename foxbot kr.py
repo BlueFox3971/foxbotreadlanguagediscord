@@ -1,8 +1,7 @@
 import asyncio
-import discord
-
+import discord    
 app = discord.Client()
-token = 
+token = ""
 
 import asyncio
 import discord
@@ -11,7 +10,7 @@ bot = commands.Bot(command_prefix='kr ')
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(status=discord.Status.offline, activity=discord.Game('say "kr <string>", type "kr 사용설명서" (kor) or "kr guidebook" (english) '))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game('say "kr <string>", type "kr 사용설명서" (kor) or "kr guidebook" (english) '))
     print('[안녕하세요! Foxbot이 가동되었습니다.]')
     print('kr <명령어>를 사용해 한국어 예문을 받을 수 있습니다')
 
@@ -21,10 +20,10 @@ async def on_ready():
 async def 안녕(ctx):
     await ctx.send("{} 나도 안녕!".format(ctx.author.mention))
 
-bot.command()
+@bot.command()
 async def 파일테스트(ctx):
-    file = discord.DMChannel("\essay\1.txt")
-    await ctx.send("메세지 내용",file=file)
+    file = "essay/1.txt"
+    await ctx.author.send("테스트 성공!", embed=discord.Embed(file))
 
 ## 이건 테스트 임베디드
 @bot.command()
@@ -38,7 +37,7 @@ async def 임베디드(ctx):
 async def 소개(ctx):
     embed = discord.Embed(title="폭스봇 소개", description="제가 절 소개해보려고 해요!", color=0x0048ba)
     embed.add_field(name="안녕하세요!", value="폭스봇은 한국어 예문들을 난이도별로 나누어 볼 수 있게 한 디스코드 봇입니다.", inline=False)
-    embed.add_field(name="탄생배경", value="이거 만든 사람은 '한중일 언어 배우기 서버'에서 관리자로 활동하고 있는데, 중국어와 일본어 봇은 있는데 한국어 봇은 너무 없는거예요. 그렇다고 제작자는 프로그래밍을 접하지도 못했고... 그래서 고민고민 끝에 직접 봇을 만들게 되었고, 머리를 부여잡으며 6시간동안이나 프로그래밍을 하다가 기초적인 걸 완성했어요. \n 그게 저예요. 헤헤!", inline=False)
+    embed.add_field(name="탄생배경", value="이거 만든 사람은 '한중일 언어 배우기 서버'에서 관리자로 활동하고 있는데, 중국어와 일본어 봇은 있는데 한국어 봇은 너무 없는거예요. 그렇다고 제작자는 프로그래밍을 접하지도 못했고... \n그래서 고민고민 끝에 직접 봇을 만들게 되었고, 머리를 부여잡으며 6시간동안이나 프로그래밍을 하다가 기초적인 걸 완성했어요. \n그게 저예요. 헤헤!", inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
